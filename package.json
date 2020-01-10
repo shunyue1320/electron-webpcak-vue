@@ -1,12 +1,15 @@
 {
   "name": "exam2",
   "version": "0.1.0",
-  "main": "main.js",
+  "main": "dist/main.bundle.js",
   "private": true,
   "scripts": {
     "start": "electron ."
   },
   "dependencies": {
     "electron": "^7.1.8"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.5"
   }
 }
