@@ -25,7 +25,7 @@ module.exports = {
             [
               '@babel/preset-env', 
               {
-                targets: { electron: process.env.npm_package_dependencies_electron.replace("^", "") }
+                targets: { electron: process.env.npm_package_devDependencies_electron.replace("^", "") }
               }
             ]
           ]
