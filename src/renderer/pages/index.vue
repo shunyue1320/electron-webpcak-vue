@@ -1,5 +1,5 @@
 <template>
   <div class="hello">
-    我是Bar
+    index index
   </div>
 </template>

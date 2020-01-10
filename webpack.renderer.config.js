@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueAutoRoutingPlugin = require('vue-auto-routing/lib/webpack-plugin')
 
 module.exports = {
   target: 'electron-renderer',
@@ -43,11 +44,20 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/renderer'),
+    }
+  },
   plugins:[
     new HtmlWebpackPlugin({
         filename:'index.html',
         template:'./src/index.html'
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new VueAutoRoutingPlugin({
+      pages: 'src/renderer/pages',
+      importPrefix: '@/pages/'
+    })
   ]
 }

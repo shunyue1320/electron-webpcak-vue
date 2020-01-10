@@ -1,16 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { createRouterLayout } from 'vue-router-layout'
+import routes from 'vue-auto-routing'
 
 Vue.use(VueRouter)
 
-import Foo from './views/Foo.vue'
-import Bar from './views/Bar.vue'
-
-const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
-]
+const RouterLayout = createRouterLayout(layout => {
+  return import('./layouts/' + layout + '.vue')
+})
 
 export default new VueRouter({
-  routes
+  routes: [
+    {
+      path: '/',
+      component: RouterLayout,
+      children: routes
+    }
+  ]
 })
