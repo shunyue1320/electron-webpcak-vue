@@ -4,7 +4,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const VueAutoRoutingPlugin = require('vue-auto-routing/lib/webpack-plugin')
 
 module.exports = {
-  target: 'electron-renderer',
+  mode: process.env.NODE_ENV == 'development' ? 'development' : 'production',
+  target: process.env.WEBPACK_DEV_SERVER ? 'web' : 'electron-renderer',
   entry: { renderer: './src/renderer/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),

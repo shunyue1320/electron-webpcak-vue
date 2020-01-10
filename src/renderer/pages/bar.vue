@@ -1,5 +1,5 @@
 <template>
   <div class="hello">
-    我是bar111111111
+    我是bar2222222222
   </div>
 </template>

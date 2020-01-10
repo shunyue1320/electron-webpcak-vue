@@ -15,9 +15,13 @@ function createWindow () {
     //   preload: path.join(__dirname, 'preload.js')
     // }
   })
-  console.log(11111111111)
-  // and load the index.html of the app.
-  mainWindow.loadFile('dist/index.html')
+
+  if (process.env.NODE_ENV == 'development') {
+    mainWindow.loadURL('http://localhost:8080/')
+  } else {
+    // and load the index.html of the app.
+    mainWindow.loadFile('dist/index.html')
+  }
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
