@@ -21,7 +21,14 @@ module.exports = {
         test: /\.m?js$/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env']
+          presets: [
+            [
+              '@babel/preset-env', 
+              {
+                targets: { electron: process.env.npm_package_dependencies_electron.replace("^", "") }
+              }
+            ]
+          ]
         }
       },
       {
@@ -53,7 +60,7 @@ module.exports = {
   plugins:[
     new HtmlWebpackPlugin({
         filename:'index.html',
-        template:'./src/index.html'
+        template:'./src/renderer/template.html'
     }),
     new VueLoaderPlugin(),
     new VueAutoRoutingPlugin({
