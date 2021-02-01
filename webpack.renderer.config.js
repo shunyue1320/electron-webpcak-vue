@@ -39,7 +39,15 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|ttf|woff2?|eot|svg)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -47,8 +55,14 @@ module.exports = {
               name: '[name]-[contenthash].[ext]',
               esModule: false
             }
-          },
-        ],
+          }
+        ]
+      },
+      {
+        test: /\.(mp3|wav|wma|ape|aac)$/i,
+        use: [
+          'file-loader'
+        ]
       }
     ]
   },
@@ -60,7 +74,8 @@ module.exports = {
   plugins:[
     new HtmlWebpackPlugin({
         filename:'index.html',
-        template:'./src/renderer/template.html'
+        template:'./src/renderer/template.html',
+        favicon: './src/renderer/assets/images/logo.ico',
     }),
     new VueLoaderPlugin(),
     new VueAutoRoutingPlugin({
