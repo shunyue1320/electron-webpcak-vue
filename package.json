@@ -23,7 +23,7 @@
     "cross-env": "^6.0.3",
     "css-loader": "^3.4.1",
     "del-cli": "^3.0.0",
-    "electron": "22.3.24",
+    "electron": "22.3.25",
     "electron-builder": "^21.2.0",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
